@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "553105559310",
+    "project_id": "dw7-app-job-timer",
+    "storage_bucket": "dw7-app-job-timer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:553105559310:android:b31f84b6662d67cad2115f",
+        "android_client_info": {
+          "package_name": "br.com.academiadoflutter.job_timer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "553105559310-9kl4dbvbv64q7gg95a27kieoce24v188.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyOzv1z75oaYefx1jTvZ7tgIs157snDFk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "553105559310-9kl4dbvbv64q7gg95a27kieoce24v188.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
