@@ -1,8 +1,9 @@
-import 'package:isar/isar.dart';
 import 'package:job_timer/app/entities/project.dart';
 import 'package:job_timer/app/entities/project_status.dart';
+import 'package:job_timer/app/entities/project_task.dart';
 import 'package:job_timer/app/repositories/projects/project_repository.dart';
 import 'package:job_timer/app/view_models/project_model.dart';
+import 'package:job_timer/app/view_models/project_task_model.dart';
 
 import './project_service.dart';
 
@@ -14,7 +15,7 @@ class ProjectServiceImpl implements ProjectService {
   }) : _projectRepository = projectRepository;
 
   @override
-  Future<void> regsiter(ProjectModel projectModel) async {
+  Future<void> register(ProjectModel projectModel) async {
     //Cascade Operator
     final project = Project()
       ..id = projectModel.id
@@ -29,5 +30,25 @@ class ProjectServiceImpl implements ProjectService {
   Future<List<ProjectModel>> findByStatus(ProjectStatus status) async {
     final projects = await _projectRepository.findByStatus(status);
     return projects.map(ProjectModel.fromEntity).toList();
+  }
+
+  @override
+  Future<ProjectModel> addTask(int projectById, ProjectTaskModel task) async {
+    final projectTask = ProjectTask()
+      ..name = task.name
+      ..duration = task.duration;
+    final project = await _projectRepository.addTask(projectById, projectTask);
+    return ProjectModel.fromEntity(project);
+  }
+
+  @override
+  Future<ProjectModel> findById(int projetById) async {
+    final project = await _projectRepository.findbyId(projetById);
+    return ProjectModel.fromEntity(project);
+  }
+
+  @override
+  Future<void> finish(int projectId) async {
+    await _projectRepository.finish(projectId);
   }
 }

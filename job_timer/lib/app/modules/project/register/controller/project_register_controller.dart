@@ -23,7 +23,7 @@ class ProjectRegisterController extends Cubit<ProjectRegisterStatus> {
         status: ProjectStatus.emAndamento,
         tasks: [],
       );
-      await _projectService.regsiter(project);
+      await _projectService.register(project);
       emit(ProjectRegisterStatus.success);
     } catch (e, s) {
       log('Erro ao salvar projeto', error: e, stackTrace: s);
